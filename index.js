@@ -17,7 +17,6 @@ server.post('/sign-up', (request, response) => {
     })
     response.send('OK');
   });
-
   server.post('/tweets', (request, response) => {
     const name = request.params.username
     const tweet = request.params.tweet
@@ -26,6 +25,10 @@ server.post('/sign-up', (request, response) => {
         tweet: tweet})
     response.send('OK');
   });
-  server.listen(5000);
+  server.listen(5000)
+ 
+ 
+ 
+ 
 
   
