@@ -1,34 +1,20 @@
-import express from 'express';
-import cors from 'cors';
+
+import cors from "cors";
+import express, {json} from "express";
 
 const server = express();
+server.use(json());
 server.use(cors());
 
-const usuariosServidor = []
-const tweetsServidor = []
+const tweets = [];
+const usuario = [];
 
-server.post('/sign-up', (request, response) => {
-    const name = request.params.username;
-    const avatar = request.params.avatar;
+server.post("/sign-up", (request, response) => {
+    const body = request.body;
+    usuario.push(body);
+    response.send("Ok");
+})
 
-    usuariosServidor.push({
-        username: name,
-            avatar: avatar
-    })
-    response.send('OK');
-  });
-  server.post('/tweets', (request, response) => {
-    const name = request.params.username
-    const tweet = request.params.tweet
-    tweetsServidor.push({
-         username: name,
-        tweet: tweet})
-    response.send('OK');
-  });
-  server.listen(5000)
- 
- 
- 
- 
 
-  
+server.listen(5000)
+
