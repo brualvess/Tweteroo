@@ -10,13 +10,13 @@ const tweets = [];
 const usuario = [];
 
 server.post("/sign-up", (request, response) => {
-    const body = request.body;
-    usuario.push(body);
+    const user = request.body;
+    usuario.push(user);
     response.send("Ok");
 })
 server.post("/tweets", (request, response) => {
-    const body = request.body;
-    const {username, tweet} = body;
+    const twets = request.body;
+    const {username, tweet} = twets;
     const {avatar} = usuario.find(user => user.username === username);
     tweets.push({
         username,
