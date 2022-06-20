@@ -46,7 +46,7 @@ server.post("/tweets", (request, response) => {
   response.send("Ok");
 })
 server.get("/tweets", (request, response) => {
-  const tweet = tweets.reverse().slice(0, 10)
+  const tweet = [...tweets].reverse().slice(0, 10)
   for (let i = 0; i < tweet.length; i++) {
     const tw = tweet[i]
     const { avatar } = usuario.find(user => user.username === tw.username);
